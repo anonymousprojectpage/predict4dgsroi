@@ -1,0 +1,13 @@
+.DS_store
+.idea
+latex
+static/interpolation/
+static/videos/
+static/images/interpolate_*.jpg
+static/images/steve.webm
+static/css/bulma-carousel.min.css
+static/css/bulma-slider.min.css
+static/css/bulma.css.map.txt
+static/css/fontawesome.all.min.css
+static/js/bulma-carousel*.js
+static/js/bulma-slider*.js
