@@ -29,6 +29,7 @@
     <div id="main-nav" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#demo-franka">Demo Videos</a>
         <a class="navbar-item" href="#method">Method</a>
         <a class="navbar-item" href="#results">Results</a>
         <a class="navbar-item" href="#BibTeX">BibTeX</a>
@@ -40,9 +41,13 @@
 <main id="top">
   <section class="hero publication-hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-vcentered is-variable is-8">
-          <div class="column is-7">
+      <div class="container is-max-widescreen">
+        <div class="hero-video-shell">
+          <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="./首页视频.mp4" type="video/mp4">
+          </video>
+          <div class="hero-video-overlay"></div>
+          <div class="hero-content">
             <p class="eyebrow">CoRL 2026 Submission</p>
             <h1 class="title is-1 publication-title">
               Predicting 4D Robot-Object Interactions by Distilling Pre-trained Video Models
@@ -64,46 +69,6 @@
               </a>
             </div>
           </div>
-          <div class="column is-5">
-            <div class="hero-visual" aria-label="Hybrid 4D robot object interaction illustration">
-              <div class="grid-floor"></div>
-              <div class="object-cloud">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="robot-arm">
-                <div class="joint base"></div>
-                <div class="link link-one"></div>
-                <div class="joint elbow"></div>
-                <div class="link link-two"></div>
-                <div class="gripper"></div>
-              </div>
-              <div class="trajectory"></div>
-              <p class="visual-caption">Video prior + 4D geometry + robot kinematics</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section stats-strip">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <p class="stat-number">100%</p>
-          <p class="stat-label">Robot consistency</p>
-        </div>
-        <div class="column">
-          <p class="stat-number">81.67%</p>
-          <p class="stat-label">Physical plausibility</p>
-        </div>
-        <div class="column">
-          <p class="stat-number">6</p>
-          <p class="stat-label">Manipulation tasks</p>
-        </div>
-        <div class="column">
-          <p class="stat-number">2</p>
-          <p class="stat-label">Optimization stages</p>
         </div>
       </div>
     </div>
@@ -116,10 +81,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Predicting future states is central to embodied robot learning, but most existing approaches predict in 2D pixel space through video generation, discarding explicit geometry and physical consistency. We distill a hybrid 4D representation from video foundation models that jointly models a deforming object and an articulated robot within a unified Gaussian Splatting framework.
-            </p>
-            <p>
-              The representation is first optimized by distilling Wan 2.2 to generate plausible object deformation and robot motion, then refined with reinforcement learning to enforce physically grounded contact and executable joint commands. Experiments show stronger physical and geometric consistency than video and 4D prediction baselines, while supporting composition with new robots and environments.
+              Predicting future states is central to embodied robot learning, but most existing approaches perform prediction in 2D pixel space through video generation, which discards explicit geometric structure and lacks physical consistency. While 4D prediction offers a more faithful representation of the physical world, current 4D generation methods are typically limited to single-object motion and do not directly produce executable robot trajectories, requiring an additional inverse dynamics module. We address these limitations by distilling a hybrid 4D representation from video foundation models. The hybrid 4D representation jointly models a deforming object and an articulated robot within a unified Gaussian Splatting framework. The representation is first optimized by distilling a pre-trained video diffusion model to generate plausible object deformation and robot motion, and then refined by differentiable trajectory optimization to produce physically plausible interactions and executable joint commands. Experiments show that our approach outperforms video and 4D prediction baselines in physical and geometric consistency, supports complex robot-object interactions, and naturally composes with new robots and environments.
             </p>
           </div>
         </div>
@@ -127,33 +89,84 @@
     </div>
   </section>
 
-  <section class="section is-light" id="motivation">
+  <section class="section demo-section" id="demo-franka">
     <div class="container is-max-desktop">
-      <div class="section-heading">
-        <p class="eyebrow">Motivation</p>
-        <h2 class="title is-3">Why Predict in 4D?</h2>
+      <div class="section-heading has-text-centered">
+        <h2 class="title is-3">Generated 4D Robot-Object Interactions</h2>
       </div>
-      <div class="columns feature-grid">
-        <div class="column">
-          <div class="feature-card">
-            <span class="feature-index">01</span>
-            <h3 class="title is-5">Executable Motion</h3>
-            <p>Robot motion is optimized directly in 3D joint space, avoiding an extra inverse dynamics model after video generation.</p>
+
+      <div class="demo-carousel" data-carousel>
+        <div class="demo-stage">
+          <div class="demo-track" data-carousel-track>
+            <article class="demo-slide is-active">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/basket_largelaundryroom.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Laundry Basket</span>
+                <h3>Large Laundry Room</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/basket_project-modern-laundry-room-with-view.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Laundry Basket</span>
+                <h3>Modern Laundry Room</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/carrot_creative_studio.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Carrot Grasping</span>
+                <h3>Creative Studio</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/carrot_project-modern-wooden-kitchen-interior.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Carrot Grasping</span>
+                <h3>Modern Wooden Kitchen</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/chair_google_style_office.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Chair Pushing</span>
+                <h3>Google-Style Office</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/chair_homeoffice.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Chair Pushing</span>
+                <h3>Home Office</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/chair_largemodernoffice.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Chair Pushing</span>
+                <h3>Large Modern Office</h3>
+              </div>
+            </article>
+            <article class="demo-slide">
+              <video controls muted playsinline preload="metadata" src="./demo_franka/contact_project-modern-wooden-kitchen-interior.mp4"></video>
+              <div class="demo-caption">
+                <span class="demo-kicker">Contact Dynamics</span>
+                <h3>Modern Wooden Kitchen</h3>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="column">
-          <div class="feature-card">
-            <span class="feature-index">02</span>
-            <h3 class="title is-5">Geometric Consistency</h3>
-            <p>Scene and robot Gaussians are rendered together, preserving depth ordering, multi-view structure, and shared gradients.</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="feature-card">
-            <span class="feature-index">03</span>
-            <h3 class="title is-5">Composability</h3>
-            <p>Robots and environments remain separate dynamic 3D entities, allowing new embodiments or scenes to be plugged in efficiently.</p>
-          </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous video">
+            <span class="icon"><i class="fas fa-chevron-left"></i></span>
+            <span>Previous</span>
+          </button>
+          <span class="carousel-status" data-carousel-status>1 / 8</span>
+          <button class="carousel-button" type="button" data-carousel-next aria-label="Next video">
+            <span>Next</span>
+            <span class="icon"><i class="fas fa-chevron-right"></i></span>
+          </button>
         </div>
       </div>
     </div>
@@ -163,55 +176,13 @@
     <div class="container is-max-desktop">
       <div class="section-heading has-text-centered">
         <p class="eyebrow">Method</p>
-        <h2 class="title is-3">Hybrid 4D Gaussian World Model</h2>
-        <p class="subtitle is-5">A unified representation couples deformable object geometry with joint-driven robot Gaussians.</p>
+        <h2 class="title is-3">Overview of the proposed method.</h2>
       </div>
 
       <figure class="method-figure">
-        <img src="./method.png" alt="Overview of score distillation with physical constraints and reinforcement learning motion refinement.">
-        <figcaption>
-          Overview of the two-stage pipeline: video-prior score distillation with physical constraints followed by reinforcement-learning motion refinement for real-world deployment.
-        </figcaption>
+        <img src="./method_real.png" alt="Overview of the hybrid 4D representation and trajectory optimization pipeline.">
       </figure>
 
-      <div class="method-diagram">
-        <div class="method-node">
-          <span class="node-label">Input</span>
-          <h3>Static Gaussian Scene</h3>
-          <p>Mesh-extracted scene with Gaussian primitives anchored to mesh faces.</p>
-        </div>
-        <div class="method-arrow"></div>
-        <div class="method-node">
-          <span class="node-label">Stage 1</span>
-          <h3>Video SDS Distillation</h3>
-          <p>Wan 2.2 guides plausible object deformation and robot motion under geometric regularizers.</p>
-        </div>
-        <div class="method-arrow"></div>
-        <div class="method-node">
-          <span class="node-label">Stage 2</span>
-          <h3>RL Motion Refinement</h3>
-          <p>Contact rewards refine the joint trajectory for physical feasibility and smooth execution.</p>
-        </div>
-      </div>
-
-      <div class="columns is-variable is-6 method-details">
-        <div class="column">
-          <div class="content">
-            <h3 class="title is-4">Hybrid Representation</h3>
-            <p>
-              Mesh-anchored scene Gaussians move through a sparse deformation graph, while link-attached robot Gaussians follow differentiable forward kinematics from joint configurations. Concatenating both sets into one rasterizer keeps visibility and gradients consistent between the robot and object.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="content">
-            <h3 class="title is-4">Physical Refinement</h3>
-            <p>
-              After video-guided optimization, the 4D scene is frozen and the robot trajectory is refined with force-closure, contact-tracking, joint-limit, velocity, acceleration, and end-effector prior rewards.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -219,8 +190,8 @@
     <div class="container is-max-desktop">
       <div class="section-heading has-text-centered">
         <p class="eyebrow">Experimental Results</p>
-        <h2 class="title is-3">Comparison with Video Generation Models</h2>
-        <p class="subtitle is-5">Evaluated on six manipulation tasks across 60 sampled views.</p>
+        <h2 class="title is-3">Quantitative Comparisons</h2>
+        <p class="subtitle is-5">We compare against both video generation model and 4D generation baselines.</p>
       </div>
 
       <div class="table-container results-table">
@@ -228,9 +199,11 @@
           <thead>
             <tr>
               <th>Method</th>
-              <th>Semantic Alignment</th>
-              <th>Physically Plausible</th>
-              <th>Robot Consistency</th>
+              <th>Sem. Align.</th>
+              <th>Phys. Plaus.</th>
+              <th>Robot Cons.</th>
+              <th>CLIP-T</th>
+              <th>CLIP Score</th>
             </tr>
           </thead>
           <tbody>
@@ -239,48 +212,71 @@
               <td>85%</td>
               <td>63.33%</td>
               <td>48.33%</td>
+              <td>0.9718</td>
+              <td>0.2971</td>
             </tr>
             <tr>
               <td>Seedance 2.0</td>
               <td><strong>93.33%</strong></td>
               <td>66.67%</td>
               <td>58.33%</td>
+              <td>0.9788</td>
+              <td>0.3050</td>
             </tr>
             <tr>
               <td>Veo 3.1</td>
               <td>86.67%</td>
               <td>71.67%</td>
               <td>28.33%</td>
+              <td>0.9694</td>
+              <td><strong>0.3069</strong></td>
             </tr>
             <tr class="ours-row">
               <td>Ours</td>
               <td>83.33%</td>
               <td><strong>81.67%</strong></td>
               <td><strong>100%</strong></td>
+              <td><strong>0.9902</strong></td>
+              <td>0.2984</td>
             </tr>
           </tbody>
         </table>
+        <p class="table-caption">Quantitative comparison with the baseline video generation model.</p>
       </div>
 
-      <div class="columns result-cards">
-        <div class="column">
-          <div class="result-card">
-            <h3 class="title is-5">Task Coverage</h3>
-            <p>Banana grasping, carrot grasping, laptop closing, fruit basket lifting, laundry basket pushing, and chair pushing.</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="result-card">
-            <h3 class="title is-5">Key Finding</h3>
-            <p>The explicit robot model maintains structure throughout prediction, while video models may deform the gripper or change the robot body.</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="result-card">
-            <h3 class="title is-5">Composability</h3>
-            <p>The optimized contact point enables fast adaptation to a CURI dual-arm robot through short trajectory optimization.</p>
-          </div>
-        </div>
+      <div class="table-container results-table">
+        <table class="table is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>CLIP Score</th>
+              <th>CLIP-I</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>InSpatial-World</td>
+              <td>0.2793</td>
+              <td>0.799</td>
+            </tr>
+            <tr>
+              <td>SV4D</td>
+              <td>0.2539</td>
+              <td>0.863</td>
+            </tr>
+            <tr>
+              <td>DreamGaussian4D</td>
+              <td>0.2309</td>
+              <td>0.892</td>
+            </tr>
+            <tr class="ours-row">
+              <td>Ours</td>
+              <td><strong>0.2984</strong></td>
+              <td><strong>0.9138</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption">Comparison with existing 4D generation methods.</p>
       </div>
     </div>
   </section>
