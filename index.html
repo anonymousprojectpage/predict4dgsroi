@@ -9,11 +9,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260617-loading">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260617-comparison">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script defer src="./static/js/index.js?v=20260617-loading"></script>
+  <script defer src="./static/js/index.js?v=20260617-comparison"></script>
 </head>
 <body>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -194,8 +194,57 @@
     <div class="container is-max-desktop">
       <div class="section-heading has-text-centered">
         <p class="eyebrow">Experimental Results</p>
-        <h2 class="title is-3">Quantitative Comparisons</h2>
+        <h2 class="title is-3">Experimental Results</h2>
         <p class="subtitle is-5">We compare against both video generation model and 4D generation baselines.</p>
+      </div>
+
+      <div class="visual-comparison-section">
+        <div class="subsection-heading has-text-centered">
+          <h3 class="title is-4">4D Generation Video Comparisons</h3>
+          <p class="subtitle is-6">A fixed azimuth view comparing our method with existing 4D generation baselines.</p>
+        </div>
+
+        <div class="comparison-video-grid">
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./comparison_video/azim60/inspatial_world.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>InSpatial-World</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./comparison_video/azim60/sv4d.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>SV4D</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./comparison_video/azim60/dreamgs4d.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>DreamGaussian4D</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card ours-comparison-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./comparison_video/azim60/ours.MP4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="subsection-heading has-text-centered">
+        <h3 class="title is-4">Quantitative Comparisons</h3>
       </div>
 
       <div class="table-container results-table">

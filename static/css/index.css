@@ -607,6 +607,54 @@ body {
   overflow: hidden;
 }
 
+.visual-comparison-section {
+  margin-bottom: 3rem;
+}
+
+.subsection-heading {
+  margin: 0 auto 1.5rem;
+  max-width: 720px;
+}
+
+.comparison-video-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.comparison-video-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(20, 33, 61, 0.06);
+  margin: 0;
+  overflow: hidden;
+}
+
+.comparison-video-frame {
+  background: #10182f;
+  position: relative;
+}
+
+.comparison-video-card video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: block;
+  width: 100%;
+}
+
+.comparison-video-card figcaption {
+  color: var(--ink);
+  font-family: "Google Sans", sans-serif;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
+.ours-comparison-card figcaption {
+  color: var(--blue);
+}
+
 .results-table .table {
   margin-bottom: 0;
 }
@@ -716,6 +764,10 @@ pre code {
 
   .carousel-controls {
     flex-wrap: wrap;
+  }
+
+  .comparison-video-grid {
+    grid-template-columns: 1fr;
   }
 
   .method-diagram {

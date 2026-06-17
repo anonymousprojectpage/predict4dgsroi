@@ -20,8 +20,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const loadVideoSources = (video) => {
+    video.querySelectorAll("source[data-src]").forEach((source) => {
+      source.src = source.dataset.src;
+      source.removeAttribute("data-src");
+    });
+
+    video.load();
+    const playPromise = video.play?.();
+    if (playPromise) {
+      playPromise.catch(() => {});
+    }
+  };
+
+  const lazyVideos = Array.from(document.querySelectorAll("video")).filter((video) => (
+    video.querySelector("source[data-src]")
+  ));
+
+  if ("IntersectionObserver" in window) {
+    const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        loadVideoSources(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "300px 0px" });
+
+    lazyVideos.forEach((video) => lazyVideoObserver.observe(video));
+  } else {
+    lazyVideos.forEach(loadVideoSources);
+  }
+
   document.querySelectorAll("video").forEach((video) => {
-    const container = video.closest(".demo-slide, .hero-video-shell");
+    const container = video.closest(".demo-slide, .comparison-video-frame, .hero-video-shell");
 
     if (!container) {
       return;
