@@ -20,6 +20,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll("video").forEach((video) => {
+    const container = video.closest(".demo-slide, .hero-video-shell");
+
+    if (!container) {
+      return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className = "video-loading-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.innerHTML = '<span class="video-loading-spinner"></span><span>Loading video...</span>';
+    container.appendChild(overlay);
+
+    const setLoading = (isLoading) => {
+      container.classList.toggle("is-video-loading", isLoading);
+    };
+
+    setLoading(video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA);
+
+    video.addEventListener("loadeddata", () => setLoading(false));
+    video.addEventListener("canplay", () => setLoading(false));
+    video.addEventListener("playing", () => setLoading(false));
+    video.addEventListener("waiting", () => setLoading(true));
+    video.addEventListener("stalled", () => setLoading(true));
+    video.addEventListener("error", () => setLoading(false));
+  });
+
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const track = carousel.querySelector("[data-carousel-track]");
     const slides = Array.from(carousel.querySelectorAll(".demo-slide"));
