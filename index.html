@@ -9,11 +9,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260617-comparison">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260621-video-comparison">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script defer src="./static/js/index.js?v=20260617-comparison"></script>
+  <script defer src="./static/js/index.js?v=20260621-video-comparison"></script>
 </head>
 <body>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -200,7 +200,52 @@
 
       <div class="visual-comparison-section">
         <div class="subsection-heading has-text-centered">
-          <h3 class="title is-4">4D Generation Video Comparisons</h3>
+          <h3 class="title is-4">Performance Comparisons with Video Generation Models</h3>
+          <p class="subtitle is-6">A banana interaction example comparing our method with video generation baselines.</p>
+        </div>
+
+        <div class="comparison-video-grid">
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./video_gen_comparison/banana_0/wan.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Wan 2.2</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./video_gen_comparison/banana_0/seedance.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Seedance 2.0</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./video_gen_comparison/banana_0/veo3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Veo 3.1</figcaption>
+          </figure>
+
+          <figure class="comparison-video-card ours-comparison-card">
+            <div class="comparison-video-frame">
+              <video autoplay muted loop playsinline preload="none">
+                <source data-src="./video_gen_comparison/banana_0/ours.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="visual-comparison-section">
+        <div class="subsection-heading has-text-centered">
+          <h3 class="title is-4">Performance Comparison with Existing 4D Generation Methods</h3>
           <p class="subtitle is-6">A fixed azimuth view comparing our method with existing 4D generation baselines.</p>
         </div>
 
