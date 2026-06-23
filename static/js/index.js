@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loadVideoSources = (video) => {
     video.querySelectorAll("source[data-src]").forEach((source) => {
+      source.addEventListener("error", () => {
+        video.dispatchEvent(new Event("error"));
+      }, { once: true });
       source.src = source.dataset.src;
       source.removeAttribute("data-src");
     });
