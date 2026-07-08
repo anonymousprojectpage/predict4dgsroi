@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.querySelectorAll("video").forEach((video) => {
-    const container = video.closest(".demo-slide, .comparison-video-frame, .hero-video-shell");
+    const container = video.closest(".demo-slide, .task-video-frame, .comparison-video-frame, .hero-video-shell");
 
     if (!container) {
       return;

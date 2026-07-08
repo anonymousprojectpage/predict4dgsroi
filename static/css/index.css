@@ -340,6 +340,75 @@ body {
     #f7f8fc;
 }
 
+.demo-task-list {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.task-video-row {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(20, 33, 61, 0.06);
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.25rem;
+}
+
+.task-video-heading {
+  text-align: center;
+}
+
+.task-video-heading .demo-kicker {
+  color: var(--blue);
+}
+
+.task-video-heading h3 {
+  color: var(--ink);
+  font-family: "Google Sans", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.task-video-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.task-video-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(20, 33, 61, 0.06);
+  margin: 0;
+  overflow: hidden;
+}
+
+.task-video-frame {
+  background: #10182f;
+  position: relative;
+}
+
+.task-video-card video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: block;
+  width: 100%;
+}
+
+.task-video-card figcaption {
+  color: var(--ink);
+  font-family: "Google Sans", sans-serif;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
 .demo-carousel {
   margin: 0 auto;
 }
@@ -760,6 +829,10 @@ pre code {
 
   .demo-caption {
     padding: 2.5rem 1rem 1rem;
+  }
+
+  .task-video-grid {
+    grid-template-columns: 1fr;
   }
 
   .carousel-controls {

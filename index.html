@@ -9,11 +9,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260623-video-paths">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260708-curi-transfer">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script defer src="./static/js/index.js?v=20260623-video-paths"></script>
+  <script defer src="./static/js/index.js?v=20260708-curi-transfer"></script>
 </head>
 <body>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -30,6 +30,7 @@
       <div class="navbar-end">
         <a class="navbar-item" href="#abstract">Abstract</a>
         <a class="navbar-item" href="#demo-franka">Demo Videos</a>
+        <a class="navbar-item" href="#curi-transfer">CURI Transfer</a>
         <a class="navbar-item" href="#method">Method</a>
         <a class="navbar-item" href="#results">Results</a>
       </div>
@@ -94,84 +95,173 @@
   </section>
 
   <section class="section demo-section" id="demo-franka">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen">
       <div class="section-heading has-text-centered">
         <h2 class="title is-3">Generated 4D Robot-Object Interactions</h2>
       </div>
 
-      <div class="demo-carousel" data-carousel>
-        <div class="demo-stage">
-          <div class="demo-track" data-carousel-track>
-            <article class="demo-slide is-active">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/basket_largelaundryroom.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Laundry basket pushing</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/basket_project-modern-laundry-room-with-view.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Laundry basket pushing</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/carrot_creative_studio.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Carrot grasping</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/carrot_project-modern-wooden-kitchen-interior.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Carrot grasping</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/chair_google_style_office.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Chair pushing</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/laptop_homeoffice.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Laptop closing</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/chair_largemodernoffice.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Chair pushing</h3>
-              </div>
-            </article>
-            <article class="demo-slide">
-              <video controls muted playsinline preload="metadata" src="./demo_franka/contact_project-modern-wooden-kitchen-interior.mp4"></video>
-              <div class="demo-caption">
-                <span class="demo-kicker">4D ROI Results</span>
-                <h3>Laptop closing</h3>
-              </div>
-            </article>
+      <div class="demo-task-list">
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">4D ROI Results</span>
+            <h3>Laundry basket pushing</h3>
           </div>
-        </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/basket_largelaundryroom.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Large laundry room</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/basket_project-modern-laundry-room-with-view.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Modern laundry room</figcaption>
+            </figure>
+          </div>
+        </article>
 
-        <div class="carousel-controls">
-          <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous video">
-            <span class="icon"><i class="fas fa-chevron-left"></i></span>
-            <span>Previous</span>
-          </button>
-          <span class="carousel-status" data-carousel-status>1 / 8</span>
-          <button class="carousel-button" type="button" data-carousel-next aria-label="Next video">
-            <span>Next</span>
-            <span class="icon"><i class="fas fa-chevron-right"></i></span>
-          </button>
-        </div>
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">4D ROI Results</span>
+            <h3>Carrot grasping</h3>
+          </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/carrot_creative_studio.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Creative studio</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/carrot_project-modern-wooden-kitchen-interior.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Wooden kitchen</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">4D ROI Results</span>
+            <h3>Chair pushing</h3>
+          </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/chair_google_style_office.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Google-style office</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/chair_largemodernoffice.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Large modern office</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">4D ROI Results</span>
+            <h3>Laptop closing</h3>
+          </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/laptop_homeoffice.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Home office</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./demo_franka/contact_project-modern-wooden-kitchen-interior.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Wooden kitchen</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="curi-transfer">
+    <div class="container is-max-widescreen">
+      <div class="section-heading has-text-centered">
+        <p class="eyebrow">Robot Transfer</p>
+        <h2 class="title is-3">CURI Robot Transfer</h2>
+        <p class="subtitle is-5">We transfer generated interactions from simulation to the real-world CURI robot.</p>
+      </div>
+
+      <div class="demo-task-list">
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">Simulation</span>
+            <h3>4D Gaussian Splatting</h3>
+          </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./curi/banana_curi_sim.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Banana interaction</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./curi/laptop_curi_sim.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Laptop interaction</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="task-video-row">
+          <div class="task-video-heading">
+            <span class="demo-kicker">Real-world</span>
+            <h3>Real-world CURI Execution</h3>
+          </div>
+          <div class="task-video-grid">
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./curi/banana_realworld.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Banana interaction</figcaption>
+            </figure>
+            <figure class="task-video-card">
+              <div class="task-video-frame">
+                <video autoplay muted loop playsinline preload="none">
+                  <source data-src="./curi/laptop_realworld.mp4" type="video/mp4">
+                </video>
+              </div>
+              <figcaption>Laptop interaction</figcaption>
+            </figure>
+          </div>
+        </article>
       </div>
     </div>
   </section>
