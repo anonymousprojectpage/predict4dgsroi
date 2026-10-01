@@ -9,7 +9,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260708-curi-transfer">
+  <link rel="stylesheet" href="./static/css/index.css?v=icra-2027-results">
   <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg?v=4d-roi">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -285,7 +285,7 @@
       <div class="section-heading has-text-centered">
         <p class="eyebrow">Experimental Results</p>
         <h2 class="title is-3">Experimental Results</h2>
-        <p class="subtitle is-5">We compare against both video generation model and 4D generation baselines.</p>
+        <p class="subtitle is-5">We compare against video generation models and 4D generation baselines, and evaluate geometric and kinematic consistency.</p>
       </div>
 
       <div class="visual-comparison-section">
@@ -346,7 +346,7 @@
                 <source data-src="./comparison_video/carrot_azim60/inspatial_world.mp4" type="video/mp4">
               </video>
             </div>
-            <figcaption>InSpatial-World</figcaption>
+            <figcaption>InSpatio-World</figcaption>
           </figure>
 
           <figure class="comparison-video-card">
@@ -383,21 +383,119 @@
       </div>
 
       <div class="table-container results-table">
-        <table class="table is-fullwidth is-hoverable">
+        <table class="table is-fullwidth is-hoverable" aria-label="Comparison with 4D generation methods" aria-describedby="comparison-4d-caption">
           <thead>
             <tr>
-              <th>Method</th>
-              <th>Sem. Align.</th>
-              <th>Phys. Plaus.</th>
-              <th>Robot Cons.</th>
-              <th>CLIP-T</th>
-              <th>CLIP Score</th>
+              <th scope="col">Method</th>
+              <th scope="col">CLIP Score &uarr;</th>
+              <th scope="col">CLIP-I &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>InSpatio-World</td>
+              <td>0.2793</td>
+              <td>0.7990</td>
+            </tr>
+            <tr>
+              <td>SV4D</td>
+              <td>0.2539</td>
+              <td>0.8630</td>
+            </tr>
+            <tr>
+              <td>DreamGaussian4D</td>
+              <td>0.2309</td>
+              <td>0.8920</td>
+            </tr>
+            <tr>
+              <td>CHORD</td>
+              <td>0.2907</td>
+              <td>0.9016</td>
+            </tr>
+            <tr class="ours-row">
+              <td>Ours</td>
+              <td><strong>0.2984</strong></td>
+              <td><strong>0.9138</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption" id="comparison-4d-caption"><strong>Comparison with 4D generation methods.</strong> Results are averaged over ten manipulation tasks, each repeated with ten random seeds. CLIP Score measures image&ndash;text alignment; CLIP-I measures feature-based cross-view consistency. Higher is better for both metrics; bold indicates the best result in each column.</p>
+      </div>
+
+      <div class="table-container results-table">
+        <table class="table is-fullwidth is-hoverable" aria-label="Geometric and kinematic evaluation" aria-describedby="geometric-kinematic-caption">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Penetration<br>(mm) &darr;</th>
+              <th scope="col">Timing Err.<br>(frames) &darr;</th>
+              <th scope="col">Contact Dir.<br>Score &uarr;</th>
+              <th scope="col">Joint Jerk<br>(rad/s<sup>3</sup>) &darr;</th>
+              <th scope="col">Robot-Consistent Frames<br>(%) &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>w/o Refinement</td>
+              <td>12.37 (8.96)</td>
+              <td>3.40 (1.78)</td>
+              <td>0.579 (0.107)</td>
+              <td>9.87 (3.71)</td>
+              <td><strong>100</strong> (0)</td>
+            </tr>
+            <tr>
+              <td>w/o Smoothness</td>
+              <td>1.31 (1.81)</td>
+              <td><strong>1.10</strong> (0.99)</td>
+              <td>0.823 (0.136)</td>
+              <td>19.52 (7.25)</td>
+              <td><strong>100</strong> (0)</td>
+            </tr>
+            <tr>
+              <td>w/o Contact Loss</td>
+              <td>13.10 (14.57)</td>
+              <td>3.50 (1.51)</td>
+              <td>0.489 (0.203)</td>
+              <td><strong>4.89</strong> (2.07)</td>
+              <td><strong>100</strong> (0)</td>
+            </tr>
+            <tr>
+              <td>CHORD</td>
+              <td>18.29 (10.79)</td>
+              <td>6.50 (4.50)</td>
+              <td>0.391 (0.264)</td>
+              <td>12.35 (4.21)</td>
+              <td>32.0 (13.2)</td>
+            </tr>
+            <tr class="ours-row">
+              <td>Full Refinement</td>
+              <td><strong>1.27</strong> (2.13)</td>
+              <td>1.20 (1.03)</td>
+              <td><strong>0.858</strong> (0.120)</td>
+              <td>5.57 (2.55)</td>
+              <td><strong>100</strong> (0)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-caption" id="geometric-kinematic-caption"><strong>Geometric and kinematic evaluation across ten manipulation tasks.</strong> Results are reported as mean (standard deviation). Arrows indicate whether higher or lower is better; bold indicates the best result in each column. CHORD results include fitting the Panda URDF to its generated robot Gaussians and temporally smoothing the recovered joint trajectories. Robot-consistent frames have a fitting RMSE below 20 mm.</p>
+      </div>
+
+      <div class="table-container results-table">
+        <table class="table is-fullwidth is-hoverable" aria-label="Comparison with video generation models" aria-describedby="comparison-video-caption">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Sem. Align. &uarr;</th>
+              <th scope="col">Geo. Plaus. &uarr;</th>
+              <th scope="col">Robot Cons. &uarr;</th>
+              <th scope="col">CLIP-T &uarr;</th>
+              <th scope="col">CLIP Score &uarr;</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Wan 2.2</td>
-              <td>85%</td>
+              <td>85.00%</td>
               <td>63.33%</td>
               <td>48.33%</td>
               <td>0.9718</td>
@@ -429,42 +527,7 @@
             </tr>
           </tbody>
         </table>
-        <p class="table-caption">Quantitative comparison with the baseline video generation model.</p>
-      </div>
-
-      <div class="table-container results-table">
-        <table class="table is-fullwidth is-hoverable">
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>CLIP Score</th>
-              <th>CLIP-I</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>InSpatial-World</td>
-              <td>0.2793</td>
-              <td>0.799</td>
-            </tr>
-            <tr>
-              <td>SV4D</td>
-              <td>0.2539</td>
-              <td>0.863</td>
-            </tr>
-            <tr>
-              <td>DreamGaussian4D</td>
-              <td>0.2309</td>
-              <td>0.892</td>
-            </tr>
-            <tr class="ours-row">
-              <td>Ours</td>
-              <td><strong>0.2984</strong></td>
-              <td><strong>0.9138</strong></td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="table-caption">Comparison with existing 4D generation methods.</p>
+        <p class="table-caption" id="comparison-video-caption"><strong>Quantitative comparison with video generation models.</strong> Semantic Alignment, Perceived Geometric Plausibility, and Robot Consistency are evaluated by 26 participants across 60 task&ndash;view cases per model, using majority voting (more than half rate a case positively). CLIP-T measures temporal feature consistency; CLIP Score measures image&ndash;text alignment. Higher is better for all metrics; bold indicates the best result in each column.</p>
       </div>
     </div>
   </section>

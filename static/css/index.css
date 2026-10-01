@@ -673,7 +673,7 @@ body {
   border-radius: 1.25rem;
   box-shadow: 0 18px 45px rgba(20, 33, 61, 0.06);
   margin-bottom: 2rem;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .visual-comparison-section {
@@ -726,6 +726,10 @@ body {
 
 .results-table .table {
   margin-bottom: 0;
+}
+
+.results-table td {
+  white-space: nowrap;
 }
 
 .results-table td,
