@@ -1,8 +1,8 @@
-# Predicting 4D Robot-Object Interactions
+# Generating 4D Robot-Object Interactions
 
 This repository contains the anonymous static project page for:
 
-**Predicting 4D Robot-Object Interactions by Distilling Pre-trained Video Models**
+**Generating 4D Robot-Object Interactions by Distilling Video Diffusion Models**
 
 The page is adapted from an open-source academic project page template and customized for a 4D robot-object interaction paper. It summarizes the motivation, hybrid 4D Gaussian representation, two-stage optimization method, and experimental comparison.
 
@@ -21,8 +21,8 @@ Then open `http://localhost:8000`.
 ```bibtex
 @inproceedings{anonymous2026predicting4d,
   author    = {Anonymous Authors},
-  title     = {Predicting 4D Robot-Object Interactions by Distilling Pre-trained Video Models},
-  booktitle = {Conference on Robot Learning},
+  title     = {Generating 4D Robot-Object Interactions by Distilling Video Diffusion Models},
+  booktitle = {International Conference on Robotics and Automation},
   year      = {2026}
 }
 ```
