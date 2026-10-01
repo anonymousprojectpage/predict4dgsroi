@@ -19,10 +19,10 @@ Then open `http://localhost:8000`.
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026predicting4d,
+@inproceedings{anonymous2027predicting4d,
   author    = {Anonymous Authors},
   title     = {Generating 4D Robot-Object Interactions by Distilling Video Diffusion Models},
   booktitle = {International Conference on Robotics and Automation},
-  year      = {2026}
+  year      = {2027}
 }
 ```
